@@ -1,0 +1,8 @@
+## Interface: 30300
+## Title: Nuckin's HUD
+## Author: Greg Flynn (Nuckin)
+## Notes: A modular Heads Up Display
+## Version: 1.303.0 Alpha
+## SavedVariables: NuckinHUDOptions
+Modules.xml
+NuckinHUD.xml
