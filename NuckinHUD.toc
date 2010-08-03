@@ -4,5 +4,6 @@
 ## Notes: A modular Heads Up Display
 ## Version: 1.303.0 Alpha
 ## SavedVariables: NuckinHUDOptions
-Modules.xml
+NuckinHUD.lua
+modules\PlayerHP.lua
 NuckinHUD.xml

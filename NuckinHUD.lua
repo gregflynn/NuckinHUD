@@ -24,3 +24,7 @@ function NuckinHUD_OnUpdate(self, elapsed)
 	--modules OnUpdate
 	
 end
+
+function NuckinHUD_AddModule(name)
+    NuckinHUD_Modules[name] = true
+end
