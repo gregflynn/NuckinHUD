@@ -1,5 +1,5 @@
-NuckinHUD_AddModule("PlayerHP")
+NuckinHUD:AddModule("PlayerHP")
 
 function NuckinHUD_PlayerHP_OnLoad(self)
-	print("Player HP Loaded")
+	self:print("Player HP Loaded")
 end

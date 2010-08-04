@@ -1,15 +1,15 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
 ../FrameXML/UI.xsd">
-	<Frame name="NuckinHUD_Events" hidden="true">
+	<Frame name="NuckinHUD" hidden="true">
 		<Scripts>
 			<OnLoad>
-				NuckinHUD_OnLoad(self)
+				NuckinHUD:OnLoad(_G["NuckinHUD"])
 			</OnLoad>
 			<OnEvent>
-				NuckinHUD_OnEvent(self, event, arg1, arg2)
+				NuckinHUD:OnEvent(_G["NuckinHUD"], event, arg1, arg2)
 			</OnEvent>
 			<OnUpdate>
-				NuckinHUD_OnUpdate(self, elapsed)
+				NuckinHUD:OnUpdate(_G["NuckinHUD"], elapsed)
 			</OnUpdate>
 		</Scripts>
 	</Frame>
