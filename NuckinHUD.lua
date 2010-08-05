@@ -1,5 +1,6 @@
 NuckinHUD = {}
 NuckinHUD_Modules = {}
+NuckinHUD_Graphics = {}
 
 function NuckinHUD:print(msg)
     print("|cff0058ff<NuckinHUD>: |r"..msg)
@@ -44,8 +45,16 @@ end
 
 function NuckinHUD:AddModule(name)
     if NuckinHUD_Modules[name] then
-        print("|cffff0000 -- ERROR: Duplicate Module Named '"..name.."'|r")
+        NuckinHUD:error("Duplicate module loaded named '"..name.."'")
     else
         NuckinHUD_Modules[name] = true
+    end
+end
+
+function NuckinHUD:AddGraphic(name)
+    if NuckinHUD_Graphics[name] then
+        NuckinHUD:error("Duplicate graphics library loaded named '"..name..."'")
+    else
+        NuckinHUD_Graphics[name] = true
     end
 end

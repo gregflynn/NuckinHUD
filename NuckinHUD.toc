@@ -5,5 +5,9 @@
 ## Version: 1.303.0 Alpha
 ## SavedVariables: NuckinHUDOptions
 NuckinHUD.lua
+
 modules\PlayerHP.lua
+
+graphics\Glow.lua
+
 NuckinHUD.xml
