@@ -29,3 +29,8 @@ end
 function NuckinHUD_Skeleton_OnUpdate(self, elapsed)
     --stuff that has to happen between events
 end
+
+--REQUIRED to apply newly changed settings for this module
+function NuckinHUD_Skeleton_ApplySettings()
+
+end

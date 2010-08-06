@@ -1,6 +1,9 @@
 NuckinHUD = {}
 NuckinHUD_Modules = {}
 NuckinHUD_Graphics = {}
+NuckinHUD_Defaults = {
+    ["Graphics"] = "Glow",
+}
 
 function NuckinHUD:print(msg)
     print("|cff0058ff<NuckinHUD>: |r"..msg)
@@ -12,7 +15,9 @@ end
 
 function NuckinHUD:OnLoad(self)
 	--core OnLoad
-	self:print("NuckinHUD Loaded")
+	self:print("NuckinHUD "..GetAddOnMetadata("NuckinHUD", "Version").." Loaded")
+	self:AddEvent("ADDON_LOADED")
+	
 	--modules OnLoad
 	for key,value in pairs(NuckinHUD_Modules) do
 		if value then
@@ -23,7 +28,13 @@ end
 
 function NuckinHUD:OnEvent(self, event, arg1, arg2)
 	--core OnEvent
-	
+	if event == "ADDON_LOADED" and arg1 == "NuckinHUD" then
+    	if NuckinHUDOptions == nil then
+    	    NuckinHUDOptions = NuckinHUD_Defaults
+    	    NuckinHUDOptions["firstloaded"] = true
+    	    self:print("First time load complete")
+    	end
+	end
 	--modules OnEvent
 	for key,value in pairs(NuckinHUD_Modules) do
 		if value then
@@ -55,7 +66,7 @@ end
 --This function registers a graphic with the core
 function NuckinHUD:AddGraphic(name)
     if NuckinHUD_Graphics[name] then
-        NuckinHUD:error("Duplicate graphics library loaded named '"..name..."'")
+        NuckinHUD:error("Duplicate graphics library loaded named '"..name.."'")
     else
         NuckinHUD_Graphics[name] = true
     end
@@ -63,5 +74,10 @@ end
 
 --This function registers an event with the core
 function NuckinHUD:AddEvent(event)
-    _G["NuckinHUD"]:RegisterEvent(event)
+    _G["NuckinHUD_Events"]:RegisterEvent(event)
+end
+
+function NuckinHUD:SetTexture(textureObj)
+    local gfx = NuckinHUDOptions["Graphics"]
+    _G["NuckinHUD_"..gfx.."_SetTexture"](textureObj)
 end
