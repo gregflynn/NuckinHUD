@@ -1,6 +1,7 @@
 NuckinHUD = {}
 NuckinHUD_Modules = {}
 NuckinHUD_Graphics = {}
+NuckinHUD_Events = {}
 NuckinHUD_Defaults = {
     ["Graphics"] = "Glow",
 }
@@ -74,7 +75,10 @@ end
 
 --This function registers an event with the core
 function NuckinHUD:AddEvent(event)
-    _G["NuckinHUD_Events"]:RegisterEvent(event)
+    if NuckinHUD_Events[event] == nil then
+        NuckinHUD_Events[event] = true
+        _G["NuckinHUD_Events"]:RegisterEvent(event)
+    end
 end
 
 function NuckinHUD:SetTexture(textureObj)
